@@ -1,0 +1,25 @@
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	.wp-caption-text {
+		margin: .5em 0 1.5em 1em;
+		
+		@media screen and (min-width:$query__small){
+			margin-left: 2em;
+		}
+		
+		@media screen and (min-width:$query__medium){
+			margin-left: 0;
+		}		
+		
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
