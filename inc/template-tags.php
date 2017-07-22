@@ -41,7 +41,7 @@ function cclux_posted_on() {
 	//removed from comments ! is_single() && 
 	//moved comments
 	if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link"> ';
+		echo '<span class="comments-link"><span class="extra">Discussion</span> ';
 		comments_popup_link(
 			sprintf(
 				wp_kses(
@@ -74,7 +74,7 @@ function cclux_posted_on() {
 			),
 			get_the_title()
 		),
-		$before = ' <span class="edit-link">',
+		$before = ' <span class="edit-link"><span class="extra">Admin</span>',
 		$after = '</span>'
 	);	
 	

@@ -22,6 +22,14 @@ function cclux_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
+		$classes[] = 'archive-view';		
+	}
+	
+	//add a class telling us if the sidebar is in use
+	if( is_active_sidebar('sidebar-1') || is_active_sidebar('footer-1') ){
+		$classes[] = 'has-sidebar';
+	}else{
+		$classes[] = 'no-sidebar';
 	}
 
 	return $classes;

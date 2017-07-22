@@ -42,6 +42,9 @@ function cclux_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	//resize the image
+	add_image_size('cclux-full-bleed', 2000, 1200, true);
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Header', 'cclux' ),
@@ -164,6 +167,17 @@ function cclux_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widget', 'cclux' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add footer widgets here.', 'cclux' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
 }
 add_action( 'widgets_init', 'cclux_widgets_init' );
 
