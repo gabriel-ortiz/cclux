@@ -74,7 +74,7 @@ function cclux_posted_on() {
 			),
 			get_the_title()
 		),
-		$before = ' <span class="edit-link"><span class="extra">Admin</span>',
+		$before = ' <span class="edit-link"><span class="extra">Admin </span>',
 		$after = '</span>'
 	);	
 	
@@ -128,3 +128,28 @@ function cclux_post_navigation() {
 			'<span class="post-title">%title</span>',
 	) );
 }
+
+/**
+ * Cuztomize ellipsis at the end of exerpts
+ * 
+ */
+ 
+ function cclux_excerpt_more($more){
+	
+	return " ...";
+ }
+ 
+ add_filter('excerpt_more', 'cclux_excerpt_more');
+ 
+ /**
+  * 
+  * Filter excerpt length to 100 words
+  *
+  */
+  
+  function cclux_excerpt_length($length){
+  	return 100;
+  }
+  
+  add_filter('excerpt_length', 'cclux_excerpt_length');
+ 

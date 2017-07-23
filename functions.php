@@ -44,6 +44,7 @@ function cclux_setup() {
 
 	//resize the image
 	add_image_size('cclux-full-bleed', 2000, 1200, true);
+	add_image_size('cclux-index-img', 800, 450, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

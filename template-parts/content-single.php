@@ -48,7 +48,7 @@
 			?>
 		</figure>
 		
-		<?php endif; ?>
+	<?php endif; ?>
 
 <section class="post-content">
 	
