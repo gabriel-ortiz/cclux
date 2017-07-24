@@ -682,6 +682,41 @@ a:hover, a:active {
 	border-bottom-color: white;
 }
 
+.pagination {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.pagination .nav-links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+	padding: .5em 1em;
+	background: white;
+}
+
+.pagination a {
+	text-decoration: none;
+}
+
+.pagination a:focus, .pagination a:hover {
+	color: white;
+	background: #b51c35;
+}
+
+.pagination .current {
+	font-weight: 600;
+	color: #b51c35;
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -780,8 +815,6 @@ a:hover, a:active {
 ## Global Layouts
 --------------------------------------------------------------*/
 .site-content {
-	max-width: 1224px;
-	margin: 0 auto;
 	padding: 1em;
 }
 
@@ -791,8 +824,15 @@ a:hover, a:active {
 	}
 }
 
+.site-content {
+	max-width: 1224px;
+	margin: 0 auto;
+}
+
+/* Single posts */
 @media screen and (min-width: 900px) {
-	.single.has-sidebar .hentry {
+	.single.has-sidebar .hentry,
+	.page .hentry {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -802,22 +842,36 @@ a:hover, a:active {
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
-	.single.has-sidebar .hentry .entry-header {
+	.single.has-sidebar .hentry .entry-header,
+	.page .hentry .entry-header {
 		width: 100%;
 		-webkit-box-flex: 1;
 		    -ms-flex: 1 0 100%;
 		        flex: 1 0 100%;
 	}
-	.single.has-sidebar .hentry .post-content {
+	.single.has-sidebar .hentry .post-content,
+	.page .hentry .post-content {
 		width: 60%;
 	}
-	.single.has-sidebar .hentry .widget-area {
+	.single.has-sidebar .hentry .widget-area,
+	.page .hentry .widget-area {
 		width: 30%;
+	}
+	.page.has-page-sidebar .hentry {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		    -ms-flex-direction: row-reverse;
+		        flex-direction: row-reverse;
+	}
+	.page:not(.has-page-sidebar) .hentry {
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
 	}
 }
 
 @media screen and (min-width: 900px) {
-	.single .no-sidebar .post-content__wrap {
+	.single.no-sidebar .post-content__wrap {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -825,10 +879,10 @@ a:hover, a:active {
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
-	.single .no-sidebar .post-content__wrap entry-meta {
+	.single.no-sidebar .post-content__wrap .entry-meta {
 		width: 20%;
 	}
-	.single .no-sidebar .post-content__wrap .post-content__body {
+	.single.no-sidebar .post-content__wrap .post-content__body {
 		width: 70%;
 	}
 }
@@ -1341,12 +1395,26 @@ button.dropdown-toggle {
 	background-color: #eee;
 }
 
-.archive-view .post {
+.archive-view .post,
+.archive-view .page {
 	background: white;
+	padding: 2em;
 }
 
 .archive-view .post__content {
 	padding: 2em;
+}
+
+.archive-view .page-header {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.archive-view .page-title {
+	margin: 0 0 .5em;
+}
+
+.archive-view .archive-description {
+	margin: -1em 0 2em;
 }
 
 @media screen and (min-width: 900px) {
@@ -1359,6 +1427,12 @@ button.dropdown-toggle {
 		        justify-content: space-between;
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
+	}
+	.archive-view.has-sidebar .page-header {
+		width: 100%;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 0 100%;
+		        flex: 1 0 100%;
 	}
 	.archive-view.has-sidebar .content-area {
 		width: 60%;
@@ -1402,6 +1476,24 @@ button.dropdown-toggle {
 .index-image a:focus > img,
 .index-image a:hover > img {
 	opacity: .8;
+}
+
+.site-main > .sticky {
+	position: relative;
+}
+
+.sticky:before {
+	content: "";
+	display: block;
+	width: 2em;
+	height: 2em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-width: 0 2em 2em 0;
+	border-color: #eee #eee white;
+	border-style: solid;
+	box-shadow: -1px 2px 2px #eee;
 }
 
 /*--------------------------------------------------------------

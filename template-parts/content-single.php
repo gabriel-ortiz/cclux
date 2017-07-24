@@ -39,6 +39,7 @@
 	
 	
 	<?php
+		//test if thumbnail is present
 		if( has_post_thumbnail() ): ?>
 	
 		<figure class="featured-image full-bleed">
@@ -101,7 +102,7 @@
 
 	
 	<?php
-	
+		//insert the next and previous post data if necessary
 		cclux_post_navigation();	
 
 		// If comments are open or we have at least one comment, load up the comment template.

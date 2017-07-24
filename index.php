@@ -14,6 +14,8 @@
 
 get_header(); ?>
 
+<?php if ( have_posts() ) : ?>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -40,7 +42,8 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			//get the pagination for this content type
+			get_template_part( 'template-parts/content', 'pagination' );
 
 		else :
 
@@ -54,3 +57,10 @@ get_header(); ?>
 <?php
 get_sidebar();
 get_footer();
+
+else :
+
+	get_template_part( 'template-parts/content', 'none' );
+	return;
+
+endif;

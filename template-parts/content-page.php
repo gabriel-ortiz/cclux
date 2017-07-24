@@ -13,8 +13,18 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+	
+	<?php
+		// insert featured image if any
+		if( has_post_thumbnail() ): ?>
+			<figure class="featured-image full-bleed">
+				<?php
+					the_post_thumbnail('cclux-full-bleed');
+				?>
+			</figure> <!--.featured-image .full-bleed-->
+	<?php endif; ?>
 
-	<div class="entry-content">
+	<div class="entry-content post-content">
 		<?php
 			the_content();
 
@@ -23,8 +33,8 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-
+		
+	
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
@@ -46,5 +56,21 @@
 				);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	<?php endif; ?>	
+	
+	<?php
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) :
+		comments_template();
+	endif;
+	?>	
+		
+	</div><!-- .entry-content -->
+
+	<?php
+		//call the page sidebar
+		//alls we gotta do is append the work 'page' to call in the page sidebar
+		get_sidebar( 'page' );
+	?>
+	
 </article><!-- #post-<?php the_ID(); ?> -->
